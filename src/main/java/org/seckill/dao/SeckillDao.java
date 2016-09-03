@@ -13,10 +13,10 @@ public interface SeckillDao {
     /**
      * 减库存
      * @param seckillId
-     * @param createTime
+     * @param killTime
      * @return
      */
-    int reduceNumber(long seckillId,Date createTime);
+    int reduceNumber(long seckillId,Date killTime);
 
     /**
      * 根据id查询秒杀商品
