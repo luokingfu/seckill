@@ -15,8 +15,8 @@
 
     </settings>
     <mappers>
-        <mapper resource="./mapper/SeckillDao.xml"/>
-        <mapper resource="./mapper/SuccesskilledDao.xml"/>
+        <mapper resource="mapper/SeckillDao.xml"/>
+        <mapper resource="mapper/SuccesskilledDao.xml"/>
     </mappers>
 
 </configuration>
