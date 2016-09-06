@@ -1,4 +1,4 @@
-package main.java.org.seckill.entity;
+package org.seckill.entity;
 
 import java.util.Date;
 
