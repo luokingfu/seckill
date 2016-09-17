@@ -1,29 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.seckill.dao.SuccessKilledDao">
     <!-- ignore 忽略主键冲突-->
     <insert id="insertSuccessKilled">
-        insert ignore into success_killed (seckill_id,user_phone,createTime) values(
-              #{seckillId},#{userPhone},now())
-        )
+        insert ignore into success_killed (seckill_id,user_phone,state) values(
+              #{seckillId},#{userPhone},0 )
     </insert>
 
     <select id="queryByIdWithSeckill" resultType="SuccessKilled">
         SELECT
-          sk.seckillId,
+          sk.seckill_id,
           sk.user_phone,
           sk.state,
-          sk.createTime,
-          s.seckillId "seckill.seckill_id",
+          sk.create_Time,
+          s.seckill_id "seckill.seckill_id",
           s.name "seckill.name",
           s.number "seckill.number",
-          s.startTime "seckill.start_time",
-          s.endTime "seckill.end_time",
-          s.createTime "seckill.create_Time"
+          s.start_Time "seckill.start_time",
+          s.end_Time "seckill.end_time",
+          s.create_Time "seckill.create_Time"
         FROM success_killed sk INNER JOIN seckill s ON
-        sk.seckill_id = s.seckill_id WHERE sk.seckill_id=#{seckillId}
+        sk.seckill_id = s.seckill_id WHERE sk.seckill_id=#{seckillId} AND sk.user_phone=#{userPhone}
     </select>
 
 </mapper>

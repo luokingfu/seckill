@@ -1,10 +1,13 @@
-package main.java.org.seckill.dao;
+package org.seckill.dao;
 
-import main.java.org.seckill.entity.SuccessKilled;
+import org.apache.ibatis.annotations.Param;
+import org.seckill.entity.SuccessKilled;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Kingfu on 2016/9/3 0003.
  */
+@Repository
 public interface SuccessKilledDao {
 
     /**
@@ -13,14 +16,14 @@ public interface SuccessKilledDao {
      * @param userPhone
      * @return
      */
-    int insertSuccessKilled(long seckillId,long userPhone);
+    int insertSuccessKilled(@Param("seckillId")long seckillId,@Param("userPhone")long userPhone);
 
     /**
      * 根据id查询秒杀成功明细并携带Seckill对象
      * @param seckillId
      * @return
      */
-    SuccessKilled queryByIdWithSeckill(long seckillId);
+    SuccessKilled queryByIdWithSeckill(@Param("seckillId")long seckillId,@Param("userPhone")long userPhone);
 
 
 }

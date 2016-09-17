@@ -1,6 +1,8 @@
 package org.seckill.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.seckill.entity.Seckill;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
 /**
  * Created by Kingfu on 2016/9/3 0003.
  */
+@Repository
 public interface SeckillDao {
 
     /**
@@ -16,7 +19,7 @@ public interface SeckillDao {
      * @param killTime
      * @return
      */
-    int reduceNumber(long seckillId,Date killTime);
+    int reduceNumber(@Param("seckillId")long seckillId,@Param("killTime")Date killTime);
 
     /**
      * 根据id查询秒杀商品
@@ -27,11 +30,11 @@ public interface SeckillDao {
 
     /**
      * 根据偏移量查询秒杀商品列表
-     * @param offet
+     * @param offset
      * @param limit
      * @return
      */
-    List<Seckill> queryAll(int offet,int limit);
+    List<Seckill> queryAll(@Param("offset")int offset,@Param("limit")int limit);
 
 
 
