@@ -3,7 +3,7 @@ package org.seckill.exception;
 /**
  * Created by kingfu on 2016/9/17 0017.
  */
-public class SeckillCloseException extends RuntimeException{
+public class SeckillCloseException extends SeckillExecption{
     public SeckillCloseException(String message) {
         super(message);
     }

@@ -5,7 +5,7 @@ package org.seckill.exception;
  *
  * ÷ÿ∏¥√Î…±“Ï≥£
  */
-public class RepeatKillException extends RuntimeException {
+public class RepeatKillException extends SeckillExecption {
     public RepeatKillException(String message) {
         super(message);
     }

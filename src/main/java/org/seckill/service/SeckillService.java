@@ -3,43 +3,46 @@ package org.seckill.service;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.entity.Seckill;
+import org.seckill.exception.RepeatKillException;
+import org.seckill.exception.SeckillCloseException;
 
 import java.util.List;
 
 /**
  * Created by kingfu on 2016/9/17 0017.
  *
- * ÒµÎñ½Ó¿Ú£ºÕ¾ÔÚ ¡®Ê¹ÓÃÕß¡¯ µÄ½Ç¶ÈÉè¼Æ½Ó¿Ú
- * ·½·¨¶¨ÒåÁ£¶È£¬²ÎÊý£¬·µ»ØÖµÀàÐÍ
+ * Òµï¿½ï¿½Ó¿Ú£ï¿½Õ¾ï¿½ï¿½ ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ß¡ï¿½ ï¿½Ä½Ç¶ï¿½ï¿½ï¿½Æ½Ó¿ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
  */
 public interface SeckillService {
 
     /**
-     * ²éÑ¯ËùÓÐÃëÉ±¶ÔÏó
+     * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     List<Seckill> getSeckillList();
 
     /**
-     * ²éÑ¯µ¥¸öÃëÉ±¶ÔÏó
+     * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½
      * @param seckillId
      * @return
      */
     Seckill getById(long seckillId);
 
     /**
-     * ÃëÉ±¿ªÆôÊ±Êä³öÃëÉ±½Ó¿ÚµØÖ·£¬·ñÔòÊä³öÏµÍ³Ê±¼äºÍÃëÉ±Ê±¼ä
+     * ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½Ó¿Úµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ï¿½ï¿½ï¿½É±Ê±ï¿½ï¿½
      * @param seckillId
      */
     Exposer exportSeckillUrl(long seckillId);
 
     /**
-     * Ö´ÐÐÃëÉ±²Ù×÷
+     * Ö´ï¿½ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½
      * @param seckillId
      * @param userPhone
      * @param md5
      * @return
      */
-    SeckillExecution executeSeckill(long seckillId,long userPhone,String md5);
+    SeckillExecution executeSeckill(long seckillId,long userPhone,String md5)
+            throws RuntimeException,RepeatKillException,SeckillCloseException;
 
 }
